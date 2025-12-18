@@ -88,86 +88,246 @@
 
 /* Services Navigation - COMPACT VERSION */
 .services-nav-section {
-    padding: 30px 0;
-    background: white;
-    position: relative;
+    padding: 25px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    top: 70px;
     z-index: 10;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 2px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.services-nav-section.shrink {
+    padding: 15px 0;
+    top: 65px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+.services-nav-section {
+    padding: 40px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    top: 80px;
+    z-index: 10;
+    border-bottom: 2px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
 
 .services-nav-container {
-    max-width: 1000px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .services-nav-header {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .services-nav-header h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: var(--secondary);
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--secondary), #334155);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .services-nav-header p {
-    color: var(--gray);
-    font-size: 0.95rem;
+    color: #64748b;
+    font-size: 1rem;
     margin: 0;
+    font-weight: 500;
 }
 
-/* Simple horizontal line */
-.services-nav-header::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 2px;
-    background: var(--primary);
-    margin: 15px auto;
-}
-
-/* Minimal tabs - just text links */
+/* Colorful tabs in a row */
 .services-nav-tabs {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 5px 15px;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) #e2e8f0;
+    max-width: 100%;
+
 }
 
+.services-nav-tabs::-webkit-scrollbar {
+    height: 6px;
+}
+
+.services-nav-tabs::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+.services-nav-tabs::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 10px;
+}
+
+/* Individual Colorful Tabs */
 .service-nav-tab {
-    padding: 8px 0;
-    background: transparent;
-    color: var(--dark);
-    font-weight: 500;
+    flex: 0 0 auto;
+    min-width: 150px;
+    padding: 12px 20px;
+    background: white;
+    color: var(--secondary);
+    font-weight: 600;
     font-size: 0.95rem;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: none;
     outline: none;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     position: relative;
-    white-space: nowrap;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+
+/* Different colors for each tab */
+.service-nav-tab[data-service="development"] {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border-color: #38bdf8;
+}
+
+.service-nav-tab[data-service="digital-marketing"] {
+    background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+    border-color: #f472b6;
+}
+
+.service-nav-tab[data-service="cloud"] {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-color: #3b82f6;
+}
+
+.service-nav-tab[data-service="consulting"] {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-color: #10b981;
+}
+
+.service-nav-tab[data-service="support"] {
+    background: linear-gradient(135deg, #fef7cd, #fef3c7);
+    border-color: #f59e0b;
 }
 
 /* Remove icons for minimal look */
 .service-nav-tab i {
-    display: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
+/* Tab colors for icons */
+.service-nav-tab[data-service="development"] i {
+    color: #0284c7;
+}
+
+.service-nav-tab[data-service="digital-marketing"] i {
+    color: #db2777;
+}
+
+.service-nav-tab[data-service="cloud"] i {
+    color: #1d4ed8;
+}
+
+.service-nav-tab[data-service="consulting"] i {
+    color: #059669;
+}
+
+.service-nav-tab[data-service="support"] i {
+    color: #d97706;
+}
+
+/* Hover Effects */
+.service-nav-tab:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.service-nav-tab:hover i {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.service-nav-tab:hover span {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
 .service-nav-tab.active {
-    color: var(--primary);
-    font-weight: 600;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    border-width: 2px;
+    position: relative;
+    overflow: visible;
+}
+
+
+.service-nav-tab.active::before {
+    content: '✓';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2;
 }
 
 .service-nav-tab.active::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
     background: var(--primary);
+    border-radius: 2px;
 }
+/* Shine effect on hover */
+.service-nav-tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.service-nav-tab:hover::before {
+    left: 100%;
+}
+
+.service-nav-tab.active i {
+    transform: scale(1.2);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
 
 .service-nav-tab:hover:not(.active) {
     color: var(--primary);
@@ -560,6 +720,8 @@ html {
     .services-hero-stats {
         gap: 40px;
     }
+
+    
 }
 
 @media (max-width: 992px) {
@@ -756,5 +918,129 @@ html {
     
     .services-hero-subtitle {
         color: #666;
+    }
+}
+
+@media (max-width: 1200px) {
+    .services-nav-tabs {
+        gap: 12px;
+    }
+    
+    .service-nav-tab {
+        min-width: 140px;
+        padding: 18px 12px;
+    }
+}
+
+@media (max-width: 992px) {
+    .services-nav-section {
+        top: 70px;
+    }
+    
+    .services-nav-tabs {
+        justify-content: flex-start;
+        padding: 15px 10px;
+    }
+    
+    .service-nav-tab {
+        min-width: 130px;
+        padding: 16px 10px;
+        font-size: 0.95rem;
+    }
+    
+    .service-nav-tab i {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-nav-section {
+        padding: 30px 0;
+        top: 60px;
+    }
+    
+    .services-nav-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .services-nav-header p {
+        font-size: 1rem;
+    }
+    
+    .services-nav-tabs {
+        gap: 10px;
+    }
+    
+    .service-nav-tab {
+        min-width: 120px;
+        padding: 14px 8px;
+        font-size: 0.9rem;
+        border-radius: 12px;
+    }
+    
+    .service-nav-tab i {
+        font-size: 1.4rem;
+    }
+    
+    .service-nav-tab.active::before {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .services-nav-section {
+        padding: 25px 0;
+        top: 60px;
+    }
+    
+    .services-nav-header {
+        margin-bottom: 20px;
+    }
+    
+    .services-nav-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .services-nav-header p {
+        font-size: 0.9rem;
+    }
+    
+    .services-nav-tabs {
+        gap: 8px;
+        padding: 10px 5px;
+    }
+    
+    .service-nav-tab {
+        min-width: 110px;
+        padding: 12px 6px;
+        font-size: 0.85rem;
+        border-radius: 10px;
+        gap: 8px;
+    }
+    
+    .service-nav-tab i {
+        font-size: 1.2rem;
+    }
+    
+    .service-nav-tab.active::before {
+        width: 20px;
+        height: 20px;
+        top: -8px;
+        right: -8px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .service-nav-tab {
+        min-width: 100px;
+        padding: 10px 4px;
+        font-size: 0.8rem;
+    }
+    
+    .service-nav-tab i {
+        font-size: 1.1rem;
     }
 }

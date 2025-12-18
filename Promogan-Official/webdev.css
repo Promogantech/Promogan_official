@@ -1,3 +1,4 @@
+/* Merged CSS - All Services */
 /* Base Styles & Variables */
 :root {
     --primary: #2563eb;
@@ -66,6 +67,10 @@ h3 {
     font-size: 1.5rem;
 }
 
+h4 {
+    font-size: 1.25rem;
+}
+
 p {
     margin-bottom: 1rem;
     color: var(--gray);
@@ -132,7 +137,7 @@ p {
     font-size: 1.1rem;
 }
 
-/* Header */
+/* Header - Common for all services */
 .service-header {
     background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
     padding: 5rem 0;
@@ -185,7 +190,7 @@ p {
     flex-wrap: wrap;
 }
 
-/* Service Overview */
+/* Service Overview - Common for Digital Marketing, App Development, and Web Development */
 .service-overview {
     padding: 4rem 0;
 }
@@ -217,7 +222,7 @@ p {
     margin-bottom: 1rem;
 }
 
-/* What We Deliver */
+/* What We Deliver - Common for Digital Marketing, App Development, and Web Development */
 .what-we-deliver {
     background-color: #f8fafc;
     padding: 4rem 0;
@@ -246,7 +251,7 @@ p {
     margin-top: 0.25rem;
 }
 
-/* Technologies */
+/* Technologies - Common for Digital Marketing, App Development, and Web Development */
 .technologies {
     padding: 4rem 0;
 }
@@ -302,7 +307,7 @@ p {
     margin-bottom: 0.75rem;
 }
 
-/* Process */
+/* Process - Common for Digital Marketing, App Development, and Web Development */
 .process {
     background-color: #f8fafc;
     padding: 4rem 0;
@@ -343,7 +348,7 @@ p {
     margin: 0 auto 1rem;
 }
 
-/* Why Choose Us */
+/* Why Choose Us - Common for Digital Marketing, App Development, and Web Development */
 .why-choose {
     padding: 4rem 0;
 }
@@ -370,7 +375,7 @@ p {
     margin-top: 0.25rem;
 }
 
-/* Pricing */
+/* Pricing - Common for Digital Marketing, App Development, and Web Development */
 .pricing {
     background-color: #f8fafc;
     padding: 4rem 0;
@@ -462,7 +467,7 @@ p {
     text-align: center;
 }
 
-/* CTA Section */
+/* CTA Section - Common for all services */
 .cta-section {
     padding: 5rem 0;
     background: linear-gradient(135deg, var(--dark) 0%, #374151 100%);
@@ -491,7 +496,7 @@ p {
     flex-wrap: wrap;
 }
 
-/* Footer */
+/* Footer - Common for all services */
 .footer {
     background-color: var(--dark);
     color: white;
@@ -504,7 +509,202 @@ p {
     margin-bottom: 0.5rem;
 }
 
-/* Responsive Design */
+/* ========== App Development Specific Styles ========== */
+/* App Categories - App Development only */
+.app-categories {
+    padding: 4rem 0;
+    background-color: #f8fafc;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.category-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.category-item i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* ========== Software Development Specific Styles ========== */
+/* Services Section - Software Development only */
+.services-section {
+    padding: 4rem 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-top: 4px solid var(--primary);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.service-card ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.service-card li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--gray);
+}
+
+.service-card li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+/* Clients Section - Software Development only */
+.clients-section {
+    background-color: #f8fafc;
+    padding: 4rem 0;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.client-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.client-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.client-item i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* Why Choose Section - Software Development only */
+.why-choose-section {
+    padding: 4rem 0;
+}
+
+/* Benefit item from Software.css - Different structure than common .benefit-item */
+.benefits-grid-software {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-item-software {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.benefit-item-software:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+}
+
+/* Highlights Section - Software Development only */
+.highlights-section {
+    background-color: #f8fafc;
+    padding: 4rem 0;
+}
+
+.highlights-list {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.highlight-item i {
+    color: var(--secondary);
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+
+
+
+
+
+
+
+/* Responsive Design - Combined from all files */
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;
@@ -543,5 +743,43 @@ p {
         right: -20px;
         width: 100px;
         font-size: 0.9rem;
+    }
+    
+    /* Software Development specific responsive */
+    .services-grid,
+    .clients-grid,
+    .benefits-grid-software {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons.text-center {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-large {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Software Development specific responsive */
+    .service-card,
+    .client-item,
+    .benefit-item-software {
+        padding: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
     }
 }

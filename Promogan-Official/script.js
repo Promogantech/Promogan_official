@@ -25,6 +25,14 @@ window.addEventListener('scroll', function() {
     }
 });
 
+  function scrollDown() {
+    window.scrollBy({
+      top: 300,   // pixels to scroll
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -179,12 +187,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const tabId = this.getAttribute('data-tab');
             
             // Remove active class from all buttons and panes
-            tabButtons.forEach(btn => btn.classList.remove('activee'));
-            tabPanes.forEach(pane => pane.classList.remove('activee'));
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabPanes.forEach(pane => pane.classList.remove('active'));
             
             // Add active class to current button and pane
-            this.classList.add('activee');
-            document.getElementById(tabId).classList.add('activee');
+            this.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
         });
     });
     
@@ -194,11 +202,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const testimonialDots = document.querySelectorAll('.dot');
     
     function showTestimonial(n) {
-        testimonialSlides.forEach(slide => slide.classList.remove('activee'));
-        testimonialDots.forEach(dot => dot.classList.remove('activee'));
+        testimonialSlides.forEach(slide => slide.classList.remove('active'));
+        testimonialDots.forEach(dot => dot.classList.remove('active'));
         
-        testimonialSlides[n].classList.add('activee');
-        testimonialDots[n].classList.add('activee');
+        testimonialSlides[n].classList.add('active');
+        testimonialDots[n].classList.add('active');
     }
     
     testimonialDots.forEach((dot, index) => {

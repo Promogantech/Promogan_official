@@ -1,51 +1,51 @@
-// Technologies data for mobile app development
+// AI/ML Technologies data
 const technologies = {
-    ios: [
-        { name: "Swift", icon: "fas fa-code" },
-        { name: "SwiftUI", icon: "fas fa-paint-brush" },
-        { name: "Objective-C", icon: "fab fa-apple" },
-        { name: "Xcode", icon: "fas fa-laptop-code" },
-        { name: "Core Data", icon: "fas fa-database" },
-        { name: "ARKit", icon: "fas fa-vr-cardboard" },
-        { name: "Core ML", icon: "fas fa-brain" },
-        { name: "HealthKit", icon: "fas fa-heartbeat" }
+    "ml-frameworks": [
+        { name: "TensorFlow", icon: "fas fa-project-diagram" },
+        { name: "PyTorch", icon: "fas fa-fire" },
+        { name: "Scikit-learn", icon: "fas fa-robot" },
+        { name: "Keras", icon: "fas fa-layer-group" },
+        { name: "XGBoost", icon: "fas fa-chart-line" },
+        { name: "Spark MLlib", icon: "fas fa-bolt" },
+        { name: "Fast.ai", icon: "fas fa-rocket" },
+        { name: "Caffe", icon: "fas fa-coffee" }
     ],
-    android: [
-        { name: "Kotlin", icon: "fab fa-android" },
-        { name: "Java", icon: "fab fa-java" },
-        { name: "Android Studio", icon: "fas fa-code" },
-        { name: "Jetpack Compose", icon: "fas fa-layer-group" },
-        { name: "Material Design", icon: "fas fa-palette" },
-        { name: "Firebase", icon: "fas fa-fire" },
-        { name: "Google Services", icon: "fab fa-google" },
-        { name: "Room Database", icon: "fas fa-database" }
+    "nlp-tools": [
+        { name: "BERT", icon: "fas fa-language" },
+        { name: "GPT Models", icon: "fas fa-comment-alt" },
+        { name: "spaCy", icon: "fas fa-text-height" },
+        { name: "NLTK", icon: "fas fa-book" },
+        { name: "Hugging Face", icon: "fas fa-smile" },
+        { name: "Stanford NLP", icon: "fas fa-university" },
+        { name: "OpenAI API", icon: "fas fa-brain" },
+        { name: "Rasa", icon: "fas fa-robot" }
     ],
-    cross: [
-        { name: "React Native", icon: "fab fa-react" },
-        { name: "Flutter", icon: "fas fa-feather-alt" },
-        { name: "Xamarin", icon: "fab fa-microsoft" },
-        { name: "Ionic", icon: "fas fa-mobile-alt" },
-        { name: "Expo", icon: "fas fa-rocket" },
-        { name: "Dart", icon: "fas fa-dart" }
+    "cv-tools": [
+        { name: "OpenCV", icon: "fas fa-eye" },
+        { name: "YOLO", icon: "fas fa-bullseye" },
+        { name: "Detectron2", icon: "fas fa-search" },
+        { name: "MMDetection", icon: "fas fa-object-group" },
+        { name: "TensorFlow.js", icon: "fab fa-js" },
+        { name: "MediaPipe", icon: "fas fa-hands" },
+        { name: "PyTorch Vision", icon: "fas fa-image" },
+        { name: "Dlib", icon: "fas fa-user" }
     ],
-    backend: [
-        { name: "Node.js", icon: "fab fa-node-js" },
-        { name: "Express.js", icon: "fas fa-server" },
-        { name: "Python", icon: "fab fa-python" },
-        { name: "Django", icon: "fas fa-database" },
-        { name: "PHP", icon: "fab fa-php" },
-        { name: "Laravel", icon: "fas fa-laravel" },
-        { name: "GraphQL", icon: "fas fa-project-diagram" },
-        { name: "REST APIs", icon: "fas fa-network-wired" },
-        { name: "Firebase", icon: "fas fa-fire" },
-        { name: "AWS", icon: "fab fa-aws" }
+    "mlops": [
+        { name: "MLflow", icon: "fas fa-chart-line" },
+        { name: "Kubeflow", icon: "fas fa-cube" },
+        { name: "AWS SageMaker", icon: "fab fa-aws" },
+        { name: "Azure ML", icon: "fab fa-microsoft" },
+        { name: "Google AI", icon: "fab fa-google" },
+        { name: "Docker", icon: "fab fa-docker" },
+        { name: "Kubernetes", icon: "fas fa-server" },
+        { name: "GitHub Actions", icon: "fab fa-github" }
     ]
 };
 
 // Initialize technologies display
 document.addEventListener('DOMContentLoaded', function() {
-    // Load initial technologies (iOS)
-    displayTechnologies('ios');
+    // Load initial technologies (ML Frameworks)
+    displayTechnologies('ml-frameworks');
     
     // Add click events to technology tabs
     const techTabs = document.querySelectorAll('.tech-tab');
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add animation to elements on scroll
+    // Add animation to process steps on scroll
     const observerOptions = {
         threshold: 0.2,
         rootMargin: '0px 0px -50px 0px'
@@ -95,17 +95,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    // Observe various elements for animation
-    document.querySelectorAll('.process-step, .overview-card, .category-item').forEach(el => {
+    // Observe process steps and overview cards
+    document.querySelectorAll('.process-step, .overview-card').forEach(el => {
         observer.observe(el);
     });
     
-    // Handle CTA button clicks
-    document.querySelectorAll('.btn-primary, .btn-secondary, .btn-outline').forEach(button => {
-        button.addEventListener('click', function(e) {
+    // Add click handlers for CTA buttons
+    document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+        btn.addEventListener('click', function(e) {
             if (this.getAttribute('href') === '#') {
                 e.preventDefault();
-                alert('Thank you for your interest in our Mobile App Development services! A representative will contact you shortly.');
+                alert('Thank you for your interest in our AI/ML solutions! We will contact you shortly.');
             }
         });
     });
@@ -136,13 +136,13 @@ function displayTechnologies(category) {
 // Add CSS for animations
 const style = document.createElement('style');
 style.textContent = `
-    .process-step, .overview-card, .category-item {
+    .process-step, .overview-card {
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.6s ease, transform 0.6s ease;
     }
     
-    .process-step.animated, .overview-card.animated, .category-item.animated {
+    .process-step.animated, .overview-card.animated {
         opacity: 1;
         transform: translateY(0);
     }
@@ -152,15 +152,5 @@ style.textContent = `
     .process-step:nth-child(3).animated { transition-delay: 0.3s; }
     .process-step:nth-child(4).animated { transition-delay: 0.4s; }
     .process-step:nth-child(5).animated { transition-delay: 0.5s; }
-    .process-step:nth-child(6).animated { transition-delay: 0.6s; }
-    
-    .category-item {
-        transition-delay: calc(0.1s * var(--index));
-    }
 `;
 document.head.appendChild(style);
-
-// Add index variable to category items for staggered animation
-document.querySelectorAll('.category-item').forEach((item, index) => {
-    item.style.setProperty('--index', index);
-});
