@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Promogan Pvt. Ltd. | Digital Transformation & IT Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* About Page Specific Styles */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 80px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .our-story {
+            padding: 40px 0;
+            background: white;
+        }
+        
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+        
+        .story-text h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .story-text p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        .story-visual {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .story-visual img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .story-visual:hover img {
+            transform: scale(1.05);
+        }
+        
+        .mission-vision {
+            padding: 40px 0;
+            background: #f8fafc;
+        }
+        
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .mv-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .mv-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+        
+        .mv-icon i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .mv-card h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .mv-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .our-values {
+            padding: 40px 0;
+            background: white;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            background: #f8fafc;
+            transform: translateY(-5px);
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .value-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .value-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .value-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .team-section {
+            padding: 40px 0;
+            background: #f8fafc;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .member-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 25px 20px;
+        }
+        
+        .member-info h3 {
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .member-bio {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .member-social a {
+            width: 40px;
+            height: 40px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .member-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .achievements {
+            padding: 40px 0;
+            background: white;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .achievement-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--radius-lg);
+            background: #f8fafc;
+            transition: var(--transition);
+        }
+        
+        .achievement-card:hover {
+            background: white;
+            box-shadow: var(--shadow);
+            transform: translateY(-5px);
+        }
+        
+        .achievement-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .achievement-label {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .clients-section {
+            padding: 40px 0;
+            background: #f8fafc;
+        }
+        
+        .clients-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .client-logo {
+            opacity: 0.7;
+            transition: var(--transition);
+            filter: grayscale(100%);
+        }
+        
+        .client-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+        
+        .client-logo img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .cta-about {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-about p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Timeline for Company History */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 30px);
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 30px);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 70px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .story-text h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-about h2 {
+                font-size: 2rem;
+            }
+            
+            .clients-logos {
+                gap: 30px;
+            }
+            
+            .client-logo img {
+                height: 40px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .mv-grid,
+            .values-grid,
+            .team-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .clients-logos {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="Promogan Logo.png" alt="Promogan Logo" class="logo-image">
+            </a>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <!-- <li><a href="index.html">Home</a></li> -->
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <!-- <li><a href="index.html#technologies">Technologies</a></li> -->
+                    <li><a href="index.html#solutions">Solutions</a></li>
+                    <!-- <li><a href="index.html#portfolio">Portfolio</a></li> -->
+                    <li><a href="blog.html">Blog</a></li>
+                    <!-- <li><a href="careers.html">Careers</a></li> -->
+                    <!-- <li><a href="index.html#contact">Contact</a></li> -->
+                    <!-- <li><a href="index.html#contact" class="cta-button">Get a Quote</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About Promogan</h1>
+            <p>Learn about our journey, mission, and the team behind our success in transforming businesses through technology.</p>
+            <a href="#our-story" class="cta-button secondary">
+                <span class="btn-text">Our Story</span>
+                <span class="btn-icon"><i class="fas fa-arrow-down"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="our-story" class="our-story">
+        <div class="about-container">
+            <div class="section-header">
+                <span class="section-label">Our Story</span>
+                <h2>From Vision to Reality</h2>
+                <p>Discover the journey of Promogan and how we became a trusted partner for digital transformation.</p>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>Empowering Businesses Through Technology Innovation</h2>
+                    <p>Promogan Private Limited is a leading IT and technology company dedicated to transforming businesses through cutting-edge digital solutions. With expertise spanning software development, artificial intelligence, cloud computing, cybersecurity, and digital marketing, we serve as a trusted technology partner for startups, enterprises, and industry leaders worldwide.</p>
+                    <p>Founded on the principles of innovation, excellence, and client success, we combine technical expertise with strategic thinking to deliver solutions that don't just meet expectations—they exceed them. Our team of skilled developers, engineers, cybersecurity experts, and digital strategists work collaboratively to turn your vision into reality.</p>
+                    <a href="#timeline" class="cta-button outline">
+                        <span class="btn-text">View Our Journey</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+                
+                <div class="story-visual">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Our Story">
+                </div>
+            </div>
+            
+            <!-- Company Timeline -->
+            <!-- <div id="timeline" class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3>Company Foundation</h3>
+                        <p>Promogan was founded with a vision to democratize technology for businesses of all sizes. Our first office opened in Bangalore with a team of 5 dedicated professionals.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3>First Major Client</h3>
+                        <p>We secured our first enterprise client and successfully delivered a comprehensive digital transformation project, establishing our reputation for quality and reliability.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>Expansion & Growth</h3>
+                        <p>Despite global challenges, we expanded our team to 25 members and opened a second office in Hyderabad. Our service portfolio grew to include cloud solutions and mobile app development.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3>Industry Recognition</h3>
+                        <p>We received the "Emerging Tech Company of the Year" award and crossed the milestone of 100 successful projects delivered to satisfied clients across various sectors.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3>Strategic Partnerships</h3>
+                        <p>Formed strategic partnerships with leading technology providers including AWS, Google Cloud, and Microsoft, enhancing our capability to deliver enterprise-grade solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Current Focus</h3>
+                        <p>Expanding our AI and machine learning capabilities while maintaining our commitment to sustainable technology practices and continuous innovation.</p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+        <div class="about-container">
+            <div class="section-header">
+                <span class="section-label">Our Purpose</span>
+                <h2>Mission & Vision</h2>
+                <p>Guiding principles that drive our decisions and shape our future.</p>
+            </div>
+            
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To empower businesses with innovative technology solutions that drive growth, enhance efficiency, and create sustainable competitive advantages in the digital age.</p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted digital transformation partner for businesses worldwide, recognized for our technical excellence, client-centric approach, and innovative solutions.</p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Our Promise</h3>
+                    <p>We commit to delivering exceptional value through transparent communication, ethical practices, and solutions that exceed expectations while building lasting partnerships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="our-values">
+        <div class="about-container">
+            <div class="section-header">
+                <span class="section-label">Our Culture</span>
+                <h2>Core Values</h2>
+                <p>The principles that guide our actions and define who we are as a company.</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We constantly explore new technologies and approaches to deliver cutting-edge solutions that give our clients a competitive edge.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We believe in the power of teamwork and work closely with our clients as partners in their success journey.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We strive for perfection in everything we do, from code quality to client communication and project delivery.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We conduct business with honesty, transparency, and ethical practices, building trust with every interaction.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion</h3>
+                    <p>Our team is driven by a genuine passion for technology and a desire to make a positive impact through our work.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Continuous Learning</h3>
+                    <p>We invest in our team's growth and stay ahead of industry trends to deliver solutions that stand the test of time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="about-container">
+            <div class="section-header">
+                <span class="section-label">Our Team</span>
+                <h2>Meet Our Leadership</h2>
+                <p>The talented individuals driving our vision forward with expertise and dedication.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=80" alt="John Smith">
+                    </div>
+                    <div class="member-info">
+                        <h3>John Smith</h3>
+                        <span class="member-role">CEO & Founder</span>
+                        <p class="member-bio">With over 15 years of experience in technology and business strategy, John leads Promogan with a vision for innovation and client success.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=1000&q=80" alt="Sarah Johnson">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah Johnson</h3>
+                        <span class="member-role">CTO</span>
+                        <p class="member-bio">Sarah brings 12 years of technical expertise in software architecture and leads our development teams in creating robust, scalable solutions.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=1000&q=80" alt="Michael Chen">
+                    </div>
+                    <div class="member-info">
+                        <h3>Michael Chen</h3>
+                        <span class="member-role">Head of Operations</span>
+                        <p class="member-bio">Michael ensures our projects run smoothly and efficiently, with a focus on quality assurance and client satisfaction.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1000&q=80" alt="Emily Roberts">
+                    </div>
+                    <div class="member-info">
+                        <h3>Emily Roberts</h3>
+                        <span class="member-role">Head of Design</span>
+                        <p class="member-bio">Emily leads our design team in creating intuitive, user-centered experiences that combine aesthetics with functionality.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+        <div class="about-container">
+            <div class="section-header">
+                <span class="section-label">Our Impact</span>
+                <h2>By The Numbers</h2>
+                <p>Quantifying our journey and the value we've delivered to our clients.</p>
+            </div>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-number">150+</div>
+                    <div class="achievement-label">Projects Completed</div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-number">50+</div>
+                    <div class="achievement-label">Happy Clients</div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-number">5+</div>
+                    <div class="achievement-label">Years Experience</div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-number">25+</div>
+                    <div class="achievement-label">Team Members</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients-section">
+        <div class="about-container">
+            <div class="section-header">
+                <span class="section-label">Our Partners</span>
+                <h2>Trusted By Industry Leaders</h2>
+                <p>We're proud to work with innovative companies across various sectors.</p>
+            </div>
+            
+            <div class="clients-logos">
+                <div class="client-logo">
+                    <img src="https://via.placeholder.com/150x60/10b981/ffffff?text=TechCorp" alt="TechCorp">
+                </div>
+                <div class="client-logo">
+                    <img src="https://via.placeholder.com/150x60/10b981/ffffff?text=GlobalRetail" alt="GlobalRetail">
+                </div>
+                <div class="client-logo">
+                    <img src="https://via.placeholder.com/150x60/10b981/ffffff?text=HealthPlus" alt="HealthPlus">
+                </div>
+                <div class="client-logo">
+                    <img src="https://via.placeholder.com/150x60/10b981/ffffff?text=FinServe" alt="FinServe">
+                </div>
+                <div class="client-logo">
+                    <img src="https://via.placeholder.com/150x60/10b981/ffffff?text=EduTech" alt="EduTech">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-about">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Let's discuss how our expertise can help you achieve your digital transformation goals.</p>
+            <a href="index.html#contact" class="cta-button secondary">
+                <span class="btn-text">Get In Touch</span>
+                <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="Promogan Logo.png" alt="Promogan Logo" class="logo-image">
+                    </div>
+                    <p>Transforming businesses through innovative digital solutions. We help you succeed in the digital age with cutting-edge technology and strategic expertise.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/promogonpvtltd/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/PromoganPvtLtd"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/promoganpvtltd/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/promoganpvtltd"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@promoganpvtltd"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <!-- <li><a href="index.html#technologies">Technologies</a></li> -->
+                        <li><a href="index.html#solutions">Solutions</a></li>
+                        <!-- <li><a href="index.html#portfolio">Portfolio</a></li> -->
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">App Development</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">Cloud Solutions</a></li>
+                        <li><a href="#">IT Consulting</a></li>
+                        <li><a href="#">IT Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates on our latest services and industry insights.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Promogan Pvt. Ltd. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // About page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate numbers in achievements section
+            const achievementNumbers = document.querySelectorAll('.achievement-number');
+            
+            achievementNumbers.forEach(number => {
+                const target = parseInt(number.textContent);
+                const duration = 2000;
+                const step = target / (duration / 16);
+                
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    number.textContent = Math.floor(current) + (number.textContent.includes('+') ? '+' : '');
+                }, 16);
+            });
+            
+            // Active link highlighting for about navigation
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage === 'about.html') {
+                const aboutLink = document.querySelector('nav ul li a[href="about.html"]');
+                if (aboutLink) {
+                    aboutLink.classList.add('active');
+                }
+            }
+            
+            // Newsletter form submission
+            const newsletterForms = document.querySelectorAll('.newsletter-form');
+            newsletterForms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    alert(`Thank you for subscribing with: ${email}`);
+                    this.reset();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
