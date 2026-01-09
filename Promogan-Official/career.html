@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Promogan Pvt. Ltd. | Join Our Team</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Career-specific Styles */
+        .career-hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .career-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .career-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .career-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .career-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .why-join-us {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-card {
+            background: #f8fafc;
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+        
+        .benefit-icon i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .benefit-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .benefit-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .job-openings {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+        
+        .job-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .job-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .job-title {
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .job-meta i {
+            color: var(--primary);
+        }
+        
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .job-tag {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .job-description {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .job-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .apply-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .apply-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .save-btn {
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            padding: 12px 25px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .save-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .life-at-promogan {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .culture-item {
+            text-align: center;
+        }
+        
+        .culture-image {
+            height: 200px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+        
+        .culture-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .culture-item:hover .culture-image img {
+            transform: scale(1.05);
+        }
+        
+        .culture-item h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .culture-item p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .application-process {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #e2e8f0;
+            z-index: 1;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .process-step h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .process-step p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .cta-career {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-career h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-career p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Application Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            color: var(--secondary);
+            margin: 0;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .application-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .application-form .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        
+        .application-form .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .application-form input,
+        .application-form textarea,
+        .application-form select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: white;
+            outline: none;
+        }
+        
+        .application-form label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: var(--gray);
+            transition: var(--transition);
+            pointer-events: none;
+            background: white;
+            padding: 0 5px;
+        }
+        
+        .application-form input:focus,
+        .application-form textarea:focus,
+        .application-form select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+        
+        .application-form input:focus + label,
+        .application-form textarea:focus + label,
+        .application-form select:focus + label,
+        .application-form input:not(:placeholder-shown) + label,
+        .application-form textarea:not(:placeholder-shown) + label,
+        .application-form select:not(:placeholder-shown) + label {
+            top: -10px;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .file-upload {
+            border: 2px dashed #e2e8f0;
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .file-upload:hover {
+            border-color: var(--primary);
+        }
+        
+        .file-upload i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .file-upload p {
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+        
+        .file-upload span {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .form-note {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .process-steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .application-form .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .career-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-career h2 {
+                font-size: 2rem;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .job-actions {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .career-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .career-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .benefits-grid,
+            .jobs-grid,
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="Promogan Logo.png" alt="Promogan Logo" class="logo-image">
+            </a>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <!-- <li><a href="index.html">Home</a></li> -->
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <!-- <li><a href="index.html#technologies">Technologies</a></li> -->
+                    <li><a href="index.html#solutions">Solutions</a></li>
+                    <!-- <li><a href="index.html#portfolio">Portfolio</a></li> -->
+                    <li><a href="blog.html">Blog</a></li>
+                    <!-- <li><a href="careers.html" class="active">Careers</a></li> -->
+                    <!-- <li><a href="index.html#contact">Contact</a></li> -->
+                    <!-- <li><a href="index.html#contact" class="cta-button">Get a Quote</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Career Hero Section -->
+    <section class="career-hero">
+        <div class="container">
+            <h1>Join Our Team</h1>
+            <p>Be part of an innovative company that's transforming businesses through cutting-edge technology solutions. Grow your career with us.</p>
+            <a href="#openings" class="cta-button secondary">
+                <span class="btn-text">View Open Positions</span>
+                <span class="btn-icon"><i class="fas fa-arrow-down"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Why Join Us Section -->
+    <section class="why-join-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Why Join Us</span>
+                <h2>Grow With Promogan</h2>
+                <p>We believe in creating an environment where talented individuals can thrive, innovate, and make a real impact.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Career Growth</h3>
+                    <p>Structured career paths with opportunities for advancement and skill development through training and mentorship programs.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaborative Culture</h3>
+                    <p>Work in cross-functional teams with talented professionals who support each other and share knowledge freely.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Cutting-Edge Technology</h3>
+                    <p>Work with the latest technologies and tools on challenging projects that push the boundaries of innovation.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Health & Wellness</h3>
+                    <p>Comprehensive health insurance, wellness programs, and flexible work arrangements to support work-life balance.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Learning & Development</h3>
+                    <p>Regular training sessions, conference attendance, and certification support to keep your skills sharp and relevant.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Recognition & Rewards</h3>
+                    <p>Competitive compensation, performance bonuses, and recognition programs that celebrate your achievements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Openings Section -->
+    <section id="openings" class="job-openings">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Open Positions</span>
+                <h2>Current Job Opportunities</h2>
+                <p>Explore our current openings and find the perfect role to match your skills and career aspirations.</p>
+            </div>
+            
+            <div class="job-filters">
+                <button class="filter-btn active" data-filter="all">All Positions</button>
+                <button class="filter-btn" data-filter="development">Development</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+                <button class="filter-btn" data-filter="operations">Operations</button>
+            </div>
+            
+            <div class="jobs-grid">
+                <!-- Job 1 -->
+                <div class="job-card" data-category="development">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Senior Full Stack Developer</h3>
+                            <div class="job-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Remote / Bangalore</span>
+                                <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                <span><i class="far fa-clock"></i> Posted 2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Node.js</span>
+                            <span class="job-tag">React</span>
+                            <span class="job-tag">AWS</span>
+                        </div>
+                    </div>
+                    <p class="job-description">We're looking for an experienced Full Stack Developer to join our product team. You'll be responsible for developing and maintaining web applications, working with modern technologies, and collaborating with cross-functional teams.</p>
+                    <div class="job-actions">
+                        <button class="apply-btn" data-job="Senior Full Stack Developer">
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        </button>
+                        <button class="save-btn">
+                            <i class="far fa-bookmark"></i>
+                            Save Job
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Job 2 -->
+                <div class="job-card" data-category="design">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">UI/UX Designer</h3>
+                            <div class="job-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Hyderabad</span>
+                                <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                <span><i class="far fa-clock"></i> Posted 5 days ago</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Figma</span>
+                            <span class="job-tag">User Research</span>
+                            <span class="job-tag">Prototyping</span>
+                        </div>
+                    </div>
+                    <p class="job-description">Join our design team to create intuitive and beautiful user experiences for our clients. You'll conduct user research, create wireframes and prototypes, and collaborate with developers to bring designs to life.</p>
+                    <div class="job-actions">
+                        <button class="apply-btn" data-job="UI/UX Designer">
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        </button>
+                        <button class="save-btn">
+                            <i class="far fa-bookmark"></i>
+                            Save Job
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Job 3 -->
+                <div class="job-card" data-category="marketing">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Digital Marketing Specialist</h3>
+                            <div class="job-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                                <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                <span><i class="far fa-clock"></i> Posted 1 week ago</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">SEO</span>
+                            <span class="job-tag">Content Marketing</span>
+                            <span class="job-tag">Analytics</span>
+                        </div>
+                    </div>
+                    <p class="job-description">We're seeking a Digital Marketing Specialist to develop and implement marketing strategies that drive growth. You'll manage SEO, content creation, social media, and analyze campaign performance.</p>
+                    <div class="job-actions">
+                        <button class="apply-btn" data-job="Digital Marketing Specialist">
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        </button>
+                        <button class="save-btn">
+                            <i class="far fa-bookmark"></i>
+                            Save Job
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Job 4 -->
+                <div class="job-card" data-category="development">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Mobile App Developer</h3>
+                            <div class="job-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Chennai</span>
+                                <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                <span><i class="far fa-clock"></i> Posted 3 days ago</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">React Native</span>
+                            <span class="job-tag">iOS</span>
+                            <span class="job-tag">Android</span>
+                        </div>
+                    </div>
+                    <p class="job-description">Join our mobile team to build cutting-edge applications for iOS and Android. You'll work with React Native and native technologies to create performant, user-friendly mobile experiences.</p>
+                    <div class="job-actions">
+                        <button class="apply-btn" data-job="Mobile App Developer">
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        </button>
+                        <button class="save-btn">
+                            <i class="far fa-bookmark"></i>
+                            Save Job
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Job 5 -->
+                <div class="job-card" data-category="operations">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Project Manager</h3>
+                            <div class="job-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Delhi</span>
+                                <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                <span><i class="far fa-clock"></i> Posted 2 weeks ago</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Agile</span>
+                            <span class="job-tag">Scrum</span>
+                            <span class="job-tag">Client Management</span>
+                        </div>
+                    </div>
+                    <p class="job-description">We're looking for an experienced Project Manager to oversee software development projects from conception to delivery. You'll coordinate teams, manage timelines and budgets, and ensure client satisfaction.</p>
+                    <div class="job-actions">
+                        <button class="apply-btn" data-job="Project Manager">
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        </button>
+                        <button class="save-btn">
+                            <i class="far fa-bookmark"></i>
+                            Save Job
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Job 6 -->
+                <div class="job-card" data-category="development">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">DevOps Engineer</h3>
+                            <div class="job-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Remote / Mumbai</span>
+                                <span><i class="fas fa-briefcase"></i> Full-time</span>
+                                <span><i class="far fa-clock"></i> Posted 4 days ago</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">AWS</span>
+                            <span class="job-tag">Docker</span>
+                            <span class="job-tag">CI/CD</span>
+                        </div>
+                    </div>
+                    <p class="job-description">Join our infrastructure team to build and maintain our cloud infrastructure and deployment pipelines. You'll work with cutting-edge technologies to ensure our systems are scalable, secure, and reliable.</p>
+                    <div class="job-actions">
+                        <button class="apply-btn" data-job="DevOps Engineer">
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        </button>
+                        <button class="save-btn">
+                            <i class="far fa-bookmark"></i>
+                            Save Job
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life at Promogan Section -->
+    <section class="life-at-promogan">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Culture</span>
+                <h2>Life at Promogan</h2>
+                <p>Discover what makes working at Promogan special and how we foster innovation, collaboration, and growth.</p>
+            </div>
+            
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="culture-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Team Collaboration">
+                    </div>
+                    <h3>Collaborative Environment</h3>
+                    <p>We believe in the power of teamwork and open communication. Our collaborative culture encourages knowledge sharing and collective problem-solving.</p>
+                </div>
+                
+                <div class="culture-item">
+                    <div class="culture-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Innovation">
+                    </div>
+                    <h3>Innovation & Creativity</h3>
+                    <p>We encourage creative thinking and provide the freedom to explore new ideas. Our innovation labs and hackathons foster groundbreaking solutions.</p>
+                </div>
+                
+                <div class="culture-item">
+                    <div class="culture-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=80" alt="Work-Life Balance">
+                    </div>
+                    <h3>Work-Life Balance</h3>
+                    <p>We understand the importance of balance. With flexible work arrangements and wellness programs, we support our employees in achieving harmony.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process Section -->
+    <section class="application-process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">How to Apply</span>
+                <h2>Our Hiring Process</h2>
+                <p>We've designed a straightforward and transparent hiring process to ensure the best experience for our candidates.</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Application</h3>
+                    <p>Submit your application through our portal. Make sure to include your resume and any relevant portfolio links.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Screening</h3>
+                    <p>Our recruitment team will review your application and contact you if there's a potential match.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Interviews</h3>
+                    <p>You'll participate in interviews with our team members to assess technical skills and cultural fit.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Offer</h3>
+                    <p>Successful candidates will receive an offer with competitive compensation and benefits package.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-career">
+        <div class="container">
+            <h2>Ready to Join Our Team?</h2>
+            <p>If you don't see a position that matches your skills, we'd still love to hear from you. Send us your resume for future opportunities.</p>
+            <a href="#contact" class="cta-button secondary">
+                <span class="btn-text">Send General Application</span>
+                <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Apply for <span id="modalJobTitle">Position</span></h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="application-form" id="jobApplicationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="firstName" name="firstName" required>
+                            <label for="firstName">First Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="lastName" name="lastName" required>
+                            <label for="lastName">Last Name</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="email" id="appEmail" name="email" required>
+                            <label for="appEmail">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" required>
+                            <label for="phone">Phone Number</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <input type="text" id="linkedin" name="linkedin">
+                        <label for="linkedin">LinkedIn Profile (Optional)</label>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="coverLetter">Cover Letter</label>
+                        <textarea id="coverLetter" name="coverLetter" rows="5" placeholder="Tell us why you're interested in this position and what makes you a great fit..."></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <div class="file-upload" id="resumeUpload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Upload your resume</p>
+                            <span>PDF, DOC, DOCX (Max 5MB)</span>
+                            <input type="file" id="resume" name="resume" class="file-input" accept=".pdf,.doc,.docx">
+                        </div>
+                        <p class="form-note">Your resume is required for application</p>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <div class="file-upload" id="portfolioUpload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Upload portfolio (Optional)</p>
+                            <span>PDF, ZIP (Max 10MB)</span>
+                            <input type="file" id="portfolio" name="portfolio" class="file-input" accept=".pdf,.zip">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="save-btn" id="closeModalBtn">Cancel</button>
+                <button class="apply-btn" type="submit" form="jobApplicationForm">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Application
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="PROMOGAN.png" alt="Promogan Logo" class="logo-image">
+                    </div>
+                    <p>Transforming businesses through innovative digital solutions. We help you succeed in the digital age with cutting-edge technology and strategic expertise.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/promogonpvtltd/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/PromoganPvtLtd"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/promoganpvtltd/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/promoganpvtltd"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@promoganpvtltd"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <!-- <li><a href="index.html#technologies">Technologies</a></li> -->
+                        <li><a href="index.html#solutions">Solutions</a></li>
+                        <!-- <li><a href="index.html#portfolio">Portfolio</a></li> -->
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">App Development</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">Cloud Solutions</a></li>
+                        <li><a href="#">IT Consulting</a></li>
+                        <li><a href="#">IT Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates on our latest services and industry insights.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Promogan Pvt. Ltd. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Career-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Job filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const jobCards = document.querySelectorAll('.job-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show/hide job cards based on filter
+                    jobCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Application modal
+            const applicationModal = document.getElementById('applicationModal');
+            const applyButtons = document.querySelectorAll('.apply-btn');
+            const closeModalBtn = document.querySelector('.close-modal');
+            const closeModalBtn2 = document.getElementById('closeModalBtn');
+            const modalJobTitle = document.getElementById('modalJobTitle');
+            
+            applyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const jobTitle = this.getAttribute('data-job');
+                    modalJobTitle.textContent = jobTitle;
+                    applicationModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close modal functions
+            function closeModal() {
+                applicationModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            closeModalBtn.addEventListener('click', closeModal);
+            closeModalBtn2.addEventListener('click', closeModal);
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === applicationModal) {
+                    closeModal();
+                }
+            });
+            
+            // File upload interactions
+            const resumeUpload = document.getElementById('resumeUpload');
+            const portfolioUpload = document.getElementById('portfolioUpload');
+            const resumeInput = document.getElementById('resume');
+            const portfolioInput = document.getElementById('portfolio');
+            
+            resumeUpload.addEventListener('click', function() {
+                resumeInput.click();
+            });
+            
+            portfolioUpload.addEventListener('click', function() {
+                portfolioInput.click();
+            });
+            
+            resumeInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    resumeUpload.innerHTML = `
+                        <i class="fas fa-check-circle" style="color: var(--primary)"></i>
+                        <p>Resume uploaded</p>
+                        <span>${this.files[0].name}</span>
+                    `;
+                }
+            });
+            
+            portfolioInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    portfolioUpload.innerHTML = `
+                        <i class="fas fa-check-circle" style="color: var(--primary)"></i>
+                        <p>Portfolio uploaded</p>
+                        <span>${this.files[0].name}</span>
+                    `;
+                }
+            });
+            
+            // Job application form submission
+            const jobApplicationForm = document.getElementById('jobApplicationForm');
+            
+            jobApplicationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate required fields
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('appEmail').value;
+                const phone = document.getElementById('phone').value;
+                const resume = document.getElementById('resume').files[0];
+                
+                if (!firstName || !lastName || !email || !phone || !resume) {
+                    alert('Please fill in all required fields and upload your resume.');
+                    return;
+                }
+                
+                // In a real application, you would send this data to a server
+                // For demo purposes, we'll just show a success message
+                
+                alert(`Thank you for applying for the ${modalJobTitle.textContent} position! We'll review your application and get back to you soon.`);
+                
+                // Reset form and close modal
+                jobApplicationForm.reset();
+                resumeUpload.innerHTML = `
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Upload your resume</p>
+                    <span>PDF, DOC, DOCX (Max 5MB)</span>
+                `;
+                portfolioUpload.innerHTML = `
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Upload portfolio (Optional)</p>
+                    <span>PDF, ZIP (Max 10MB)</span>
+                `;
+                
+                closeModal();
+            });
+            
+            // Save job functionality
+            const saveButtons = document.querySelectorAll('.save-btn');
+            
+            saveButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const jobCard = this.closest('.job-card');
+                    const jobTitle = jobCard.querySelector('.job-title').textContent;
+                    
+                    if (this.innerHTML.includes('fa-bookmark')) {
+                        this.innerHTML = `
+                            <i class="fas fa-bookmark"></i>
+                            Saved
+                        `;
+                        alert(`"${jobTitle}" has been saved to your favorites.`);
+                    } else {
+                        this.innerHTML = `
+                            <i class="far fa-bookmark"></i>
+                            Save Job
+                        `;
+                        alert(`"${jobTitle}" has been removed from your favorites.`);
+                    }
+                });
+            });
+            
+            // Active link highlighting for career navigation
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage === 'careers.html') {
+                const careerLink = document.querySelector('nav ul li a[href="careers.html"]');
+                if (careerLink) {
+                    careerLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
